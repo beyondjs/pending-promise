@@ -1,0 +1,6 @@
+{
+  "name": "main",
+  "platforms": "*",
+  "bundle": "ts",
+  "files": "*"
+}
