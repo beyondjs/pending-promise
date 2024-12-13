@@ -1,38 +1,38 @@
 {
-  "name": "@beyond-js/pending-promise",
-  "author": "BeyondJS",
-  "email": "hello@beyondjs.com",
-  "version": "0.0.2",
-  "license": "MIT",
-  "repository": "https://github.com/beyondjs/pending-promise",
-  "modules": {
-    "path": "modules"
-  },
-  "exports": {
-    ".": "./index.js"
-  },
-  "dependencies": {},
-  "deployment": {
-    "distributions": [
-      {
-        "name": "node",
-        "environment": "local",
-        "platform": "node",
-        "ports": {
-          "bundles": 8080
-        }
-      },
-      {
-        "name": "node-ts",
-        "environment": "local",
-        "platform": "node",
-        "ts": {
-          "compiler": "tsc"
-        },
-        "ports": {
-          "bundles": 8081
-        }
-      }
-    ]
-  }
+	"name": "@beyond-js/pending-promise",
+	"author": "BeyondJS",
+	"email": "hello@beyondjs.com",
+	"version": "0.0.2",
+	"license": "MIT",
+	"repository": "https://github.com/beyondjs/pending-promise",
+	"modules": {
+		"path": "modules"
+	},
+	"exports": {
+		".": "./index.js"
+	},
+	"dependencies": {},
+	"deployment": {
+		"distributions": [
+			{
+				"name": "node",
+				"environment": "local",
+				"platform": "node",
+				"ports": {
+					"bundles": 8080
+				}
+			},
+			{
+				"name": "node-ts",
+				"environment": "local",
+				"platform": "node",
+				"ts": {
+					"compiler": "tsc"
+				},
+				"ports": {
+					"bundles": 8081
+				}
+			}
+		]
+	}
 }

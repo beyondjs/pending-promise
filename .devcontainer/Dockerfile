@@ -9,4 +9,4 @@ WORKDIR /workspaces/ailearn
 ENV LANG="C.UTF-8"
 
 # Install beyond
-RUN npm i -g beyond@1.2.0
+RUN npm i -g beyond@1.2.4
