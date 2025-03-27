@@ -35,7 +35,7 @@
 		]
 	},
 	"dependencies": {
-		"@beyond-js/kernel": "~0.1.9"
+		"@beyond-js/kernel": "~0.1.10"
 	},
 	"devDependencies": {
 		"jest": "^29.7.0",
