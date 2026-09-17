@@ -1,41 +1,18 @@
-# @beyond-js/pending-promise
+# Pending Promise
 
-A `PendingPromise` class that extends the native `Promise` to provide externally accessible `resolve` and `reject`
-methods.
+PendingPromise extends native Promise with public resolve and reject functions. It lets an object expose one readiness promise while settling it later from callbacks or initialization logic.
 
-## Installation
-
-```sh
-npm install @beyond-js/pending-promise
-```
-
-## Usage
-
-```typescript
+```ts
 import { PendingPromise } from '@beyond-js/pending-promise/main';
 
-const promise = new PendingPromise<string>();
-
-// Resolve the promise later
-setTimeout(() => {
-	promise.resolve('Hello, world!');
-}, 1000);
-
-promise.then(value => {
-	console.log(value); // Output after 1 second: Hello, world!
-});
+const ready = new PendingPromise<string>();
+const consume = ready.then(value => console.log(value));
+ready.resolve('ready');
+await consume;
 ```
 
-## API
+The optional executor runs synchronously during construction. Native Promise rules still govern fulfillment, rejection, thenable adoption and the first settlement. This class does not add timeout, cancellation, retry or observable state.
 
-### `PendingPromise`
+The selected implementation exposes the promise directly: use `await ready`, not `await ready.value`. A compatibility variant adds a value getter returning the promise itself; that getter is absent here and never means the fulfilled payload.
 
-Extends the native `Promise` class with externally accessible `resolve` and `reject` methods.
-
-#### Constructor
-
-```typescript
-new PendingPromise<T>(executor?: (resolve: (value?: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void)
-```
-
--   **executor**: Optional executor function that takes `resolve` and `reject` functions.
+Read [architecture and compatibility](docs/architecture.md) for exact API, lifecycle and build/test limitations. The Beyond source package is [src/package.json](src/package.json), selected by [beyond.json](beyond.json); the public module is `@beyond-js/pending-promise/main`.
