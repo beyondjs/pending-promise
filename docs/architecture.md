@@ -36,4 +36,4 @@ The Dynamic Processor readiness, the watchers readiness handshake and the IPC re
 
 ## Package, build and validation
 
-[beyond.json](../beyond.json) selects [src/package.json](../src/package.json), whose Node distributions use ports 8080 and 8081 and whose [TypeScript settings](../src/modules/main/tsconfig.json) target ES2017. The manifest's root `exports` entry points to a generated `index.js` that the source does not contain; the public module is what consumers import. The Jest configuration retained under [src/test](../src/test) is historical and not connected to a runner; the maintained tests are under [tests/](../tests/README.md) and [validation](validation.md) maps each contract to its test.
+[beyond.json](../beyond.json) selects [src/package.json](../src/package.json), whose Node distributions use ports 8080 and 8081 and whose [TypeScript settings](../src/modules/main/tsconfig.json) target ES2017. The manifest's root `exports` entry points to a generated `index.js` that the source does not contain; the public module is what consumers import. The tests are under [tests/](../tests/README.md), and [validation](validation.md) maps each contract to its test.

@@ -1,3 +1,7 @@
+/**
+ * A native Promise that is settled from outside through its `resolve` and `reject` members. It has no
+ * timeout and no cancellation: whoever creates it settles it, on success and on failure.
+ */
 export /*bundle*/ class PendingPromise<T> extends Promise<T> {
 	public resolve!: (value: T | PromiseLike<T>) => void;
 	public reject!: (reason?: any) => void;
