@@ -1,6 +1,6 @@
 # Pending Promise
 
-PendingPromise extends native Promise with public resolve and reject functions. It lets an object expose one readiness promise while settling it later from callbacks or initialization logic.
+`PendingPromise` is a native `Promise` whose `resolve` and `reject` are members of the instance, so an object can expose one readiness promise and settle it later from callbacks or initialisation logic.
 
 ```ts
 import { PendingPromise } from '@beyond-js/pending-promise/main';
@@ -11,8 +11,6 @@ ready.resolve('ready');
 await consume;
 ```
 
-The optional executor runs synchronously during construction. Native Promise rules still govern fulfillment, rejection, thenable adoption and the first settlement. This class does not add timeout, cancellation, retry or observable state.
+Native rules govern everything else: the optional executor runs synchronously during construction and its throw rejects; only the first settlement counts; resolving with a thenable adopts it; `then` and the combinators return instances of the subclass with their own settlement members; a rejection nobody observes is an unhandled rejection of the process. The class adds no timeout, cancellation, reset, settled flag or `value` member: the owner settles every path, and awaits the promise itself.
 
-The selected implementation exposes the promise directly: use `await ready`, not `await ready.value`. A compatibility variant adds a value getter returning the promise itself; that getter is absent here and never means the fulfilled payload.
-
-Read [architecture and compatibility](docs/architecture.md) for exact API, lifecycle and build/test limitations. The Beyond source package is [src/package.json](src/package.json), selected by [beyond.json](beyond.json); the public module is `@beyond-js/pending-promise/main`.
+Read [architecture and compatibility](docs/architecture.md) and [validation](docs/validation.md). The Beyond source package is [src/package.json](src/package.json), selected by [beyond.json](beyond.json); the public module is `@beyond-js/pending-promise/main`.

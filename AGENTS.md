@@ -2,6 +2,8 @@
 
 Canonical instructions for this independent repository and its descendants. Read the local README and relevant guides before changing code. This utility is authored with Beyond and must preserve its public package and module boundaries.
 
+The class is a native Promise subclass with `resolve` and `reject` on the instance and nothing else: no timeout, reset, settled flag, observer or `value` member. Keep it that small; [validation](docs/validation.md) maps each contract to its test.
+
 - Preserve the selected branch, existing changes and public identifiers. Do not commit, push, reset, deploy or publish without explicit authorization.
 - Use English for first-party documentation, comments and explanatory text. Preserve functional strings and generated/vendor content.
 - Keep documentation autonomous: relative links stay inside this repository; external packages are described as contracts with optional references.
