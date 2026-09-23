@@ -3,6 +3,7 @@
     "target": "es2017",
     "module": "es2020",
     "noImplicitAny": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "types": []
   }
 }
